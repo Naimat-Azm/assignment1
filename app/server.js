@@ -62,7 +62,7 @@ app.post('/update-profile', function (req, res) {
 
 app.get('/get-profile', function (req, res) {
   let response = {};
-  // Connect to the db
+ 
   MongoClient.connect(mongoUrlDocker, mongoClientOptions, function (err, client) {
     if (err) {
       console.error('Database connection error:', err);
@@ -82,7 +82,7 @@ app.get('/get-profile', function (req, res) {
       response = result;
       client.close();
 
-      // Send response
+      
       res.send(response ? response : {});
     });
   });
